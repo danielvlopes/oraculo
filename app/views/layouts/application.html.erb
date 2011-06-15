@@ -7,13 +7,42 @@
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
-  <body>
-    <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
+
+  <body id="<%= body_css_id %>">
+
+    <div id="wrapper">
+
+      <div id="header" style="margin: 20px 0; overflow: hidden;">
+        <div class="left">
+          Community Support for <strong>MyApp</strong>
+        </div>
+        <div class="right">
+          Daniel Lopes | <%= link_to "Sign Out", "#" %>
+        </div>
+      </div>
+
+      <div id="content">
+        <div id="container" style="float: left;">
+          <div id="innerContainer">
+            <%= flash_messages %>
+            <%= yield %>
+          </div>
+        </div>
+
+        <div id="sidebar" style="float: right; width: 180px; margin-top: 30px;">
+          <h3>The rules</h3>
+          <p>
+            Be gentle and helpful. Any off-topic or ofensive post willbe
+            removed without further warnings.
+          </p>
+        </div>
+      </div>
+
+      <div id="footer" style="height: 50px; margin-bottom: 20px; text-align: right; width: 740px;">
+        <p>Powered by <%= link_to "Oraculo", "http://oraculo.heroku.com/" %></p>
+      </div>
+
     </div>
+
   </body>
 </html>

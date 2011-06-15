@@ -1,0 +1,25 @@
+<div id="questionOwner">
+  <%= image_tag "avatar.png", size: 40px; %>
+</div>
+
+<div id="questionForm">
+  <%= form_for(@question) do |f| %>
+    <%= f.error_messages %>
+
+    <div class="field">
+      <%= f.label :title, "What's your question?" %><br />
+      <%= f.text_field :title, placeholder: "How can I upgrade my account?", size: 40 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :body, "Give more details as much as you can" %><br />
+      <%= f.text_area :body, rows: 10, cols: 60 %>
+    </div>
+
+    <div class="actions">
+      <%= submit_button %> or <%= link_to_cancel %>
+    </div>
+  <% end %>
+</div>
+
+<%= clearfix %>
