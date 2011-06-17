@@ -14,6 +14,11 @@ describe Question do
       question.should_not be_valid
       question.should have(1).error_on(:body)
     end
+
+    it "requires an owner" do
+      question.should_not be_valid
+      question.should have(1).error_on(:owner)
+    end
   end
 
 end

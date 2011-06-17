@@ -1,15 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="question">
 
-<p>
-  <b>Title:</b>
-  <%= @question.title %>
-</p>
+  <div id="questionOwner">
+    <%= image_tag "avatar.png" %>
+  </div>
 
-<p>
-  <b>Body:</b>
-  <%= @question.body %>
-</p>
+  <div id="questionBody">
+    <h4><%= @question.title %></h4>
+
+    <p class="metadata">
+      <span class="owner"><%= @question.owner.name %></span>
+      <span class="time"><%= time_ago_in_words @question.created_at %></span>
+      <%= actions_for_question @question %>
+    </p>
+
+    <%= @question.body %>
+  </div>
+
+  <%= clearfix %>
+</div>
 
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>

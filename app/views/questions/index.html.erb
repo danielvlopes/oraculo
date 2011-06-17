@@ -1,25 +1,19 @@
-<h1>Listing questions</h1>
+<div id="questionsList">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% @questions.each do |question| %>
 
-<% @questions.each do |question| %>
-  <tr>
-    <td><%= question.title %></td>
-    <td><%= question.body %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+    <div class="question">
+      <h4><%= link_to question.title, question %></h4>
 
-<br />
+      <p class="metadata">
+        <span class="answersCount">2 replies</span>,
+        latest by <span class="questionAuthor">Jonh Doe</span> on
+        <span class="time">Jun 16, 2011 11:14 PM</span>
 
-<%= link_to 'New Question', new_question_path %>
+        <%= actions_for_question question %>
+      </p>
+    </div>
+
+  <% end %>
+
+</div>

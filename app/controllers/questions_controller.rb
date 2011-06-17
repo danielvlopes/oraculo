@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  
+  before_filter :authenticate_user!, except: [:index, :show]
+  
   def index
     @questions = Question.all
     respond_with(@questions)
@@ -10,28 +13,28 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = current_user.questions.build
     respond_with(@question)
   end
 
   def edit
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
   end
 
   def create
-    @question = Question.new(params[:question])
+    @question = current_user.questions.new(params[:question])
     @question.save
     respond_with(@question)
   end
 
   def update
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
     @question.update_attributes(params[:question])
     respond_with(@question)
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
     @question.destroy
     respond_with(@question)
   end

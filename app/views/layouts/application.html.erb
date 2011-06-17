@@ -12,34 +12,54 @@
 
     <div id="wrapper">
 
-      <div id="header" style="margin: 20px 0; overflow: hidden;">
+      <div id="header">
         <div class="left">
-          Community Support for <strong>MyApp</strong>
+          Community Support for 
+          <strong><%= link_to "My App", root_path %></strong>
         </div>
         <div class="right">
-          Daniel Lopes | <%= link_to "Sign Out", "#" %>
+
+          <% if signed_in? %>
+            <%= current_user.email %> |
+            <%= link_to "Sign Out", destroy_user_session_path %>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path %> | 
+            <%= link_to "Sign Up", new_user_registration_path %>
+          <% end %>
+
         </div>
       </div>
 
       <div id="content">
-        <div id="container" style="float: left;">
+        <div id="container">
           <div id="innerContainer">
             <%= flash_messages %>
+
+            <div id="search">
+              <div id="searchBar">
+                <%= form_tag "#" do %>
+                  <%= text_field_tag :search %>
+                  <%= submit_tag "Search", class: "searchButton"  %>
+                <% end -%>
+              </div>
+
+              <div id="searchOptions">
+                <p><%= link_to "Advanced Search", "#" %></p>
+              </div>
+            </div>
+
             <%= yield %>
           </div>
         </div>
 
-        <div id="sidebar" style="float: right; width: 180px; margin-top: 30px;">
-          <h3>The rules</h3>
-          <p>
-            Be gentle and helpful. Any off-topic or ofensive post willbe
-            removed without further warnings.
-          </p>
+        <div id="sidebar">
+          <%= link_to image_tag("logo.jpg", id: "productLogo"), root_path %>
+          <p><%= link_to 'Ask a Question', new_question_path, id: "addQuestion" %></p>
         </div>
       </div>
 
-      <div id="footer" style="height: 50px; margin-bottom: 20px; text-align: right; width: 740px;">
-        <p>Powered by <%= link_to "Oraculo", "http://oraculo.heroku.com/" %></p>
+      <div id="footer">
+        <p>Powered by <strong><%= link_to "Oraculo", "http://oraculo.heroku.com/" %></strong></p>
       </div>
 
     </div>

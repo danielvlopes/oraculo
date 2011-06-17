@@ -2,14 +2,28 @@ require 'spec_helper'
 
 describe QuestionsController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Question. As you add validations to Question, be sure to
-  # update the return value of this method accordingly.
+  include Devise::TestHelpers
+
+  def user(args={})
+    @user ||= User.create({
+      name: "Jonh",
+      email: "jonh@gmail.com",
+      password: "123456",
+      password_confirmation: "123456"
+    }.merge(args))
+  end
+
   def valid_attributes
-    { 
+    {
       title: "Some Question",
-      body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit..."
+      body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",
+      owner: user
     }
+  end
+
+  before(:each) do
+    request.env['warden'] = mock(Warden, :authenticate => user,
+                                         :authenticate! => user)
   end
 
   describe "GET index" do

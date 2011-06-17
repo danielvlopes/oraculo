@@ -1,21 +1,22 @@
 module NavigationHelpers
-  # Maps a name to a path. Used by the
-  #
-  #   When /^I go to (.+)$/ do |page_name|
-  #
-  # step definition in web_steps.rb
-  #
+
+  def signup_page
+    "/users/sign_up"
+  end
+
   def path_to(page_name)
     case page_name
 
     when /the home\s?page/
       '/'
-
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
+    when /the new question page/
+      new_question_path
+    when /the questions page/
+      questions_path
+    when /the sign in page/
+      new_user_session_path
+    when /the sign out page/
+      destroy_user_session_path
 
     else
       begin

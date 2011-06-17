@@ -25,7 +25,7 @@ module ApplicationHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
 
-  def submit_button(text = nil, options = {})
+  def submit_button(text = "Save", options = {})
     options.reverse_merge!(:class => 'submit', :disable_with => "Wait...")
     submit_tag(text, options)
   end
@@ -34,6 +34,11 @@ module ApplicationHelper
     options.reverse_merge!(:class => 'cancel')
     link_to text, url, options
   end
+
+  def link_to_destroy(text, destination, options = {})
+    options.reverse_merge!(:confirm => "Are you sure?", :method => :delete)
+    link_to text, destination, options
+  end  
 
   def body_css_id
     controller_name.camelize :lower
