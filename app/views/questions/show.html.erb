@@ -1,10 +1,10 @@
-<div class="question">
+<div class="message">
 
-  <div id="questionOwner">
+  <div id="messageOwner">
     <%= image_tag "avatar.png" %>
   </div>
 
-  <div id="questionBody">
+  <div id="messageBody">
     <h4><%= @question.title %></h4>
 
     <p class="metadata">
@@ -19,4 +19,28 @@
   <%= clearfix %>
 </div>
 
+<% @question.answers.each do |answer| %>
+  <div class="message">
 
+    <div id="messageOwner">
+      <%= image_tag "avatar.png" %>
+    </div>
+
+    <div id="messageBody">
+      <p class="metadata">
+        <span class="owner"><%= answer.owner.name %></span>
+        <span class="time"><%= time_ago_in_words answer.created_at %></span>
+      </p>
+
+      <%= answer.body %>
+    </div>
+
+    <%= clearfix %>
+  </div>
+<% end %>
+
+<% if signed_in? %>
+  <div class="answerForm">
+    <%= render "answers/form", question: @question, answer: Answer.new %>
+  </div>
+<% end %>

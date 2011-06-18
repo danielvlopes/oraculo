@@ -337,26 +337,26 @@ textarea {
   font-size: 16px;
 }
 
-#questionOwner {
+#messageOwner {
   float: left;
   width: 70px;
   padding: 10px 20px;
 }
 
-#questionOwner img {
+#messageOwner img {
   border: 1px solid #cacbcb;
 }
 
-#questionBody {
+#messageBody {
   float: left;
   width: 540px;
 }
 
-#questionBody input[type="text"], textarea{
+#messageBody input[type="text"], textarea{
   width: 100%;
 }
 
-div.questions, div.question {
+div.messages, div.message {
   color: #777;
   font-size: 11px;
   line-height: 13px;
@@ -365,18 +365,18 @@ div.questions, div.question {
   border-bottom: solid 1px #E9E9E9;
 }
 
-div.question .metadata {
+.metadata {
   padding: 0;
   margin: 10px 0 10px 0;
 }
 
-div.question .metadata .owner{
+.metadata .owner{
   font-size: 14px;
   font-weight: bold;
   color: black;
 }
 
-div.question h4 a, div.question h4 {
+div.message h4 a, div.message h4 {
   color: black;
   font-size: 22px;
 }
