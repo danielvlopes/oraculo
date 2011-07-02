@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
-  
-  before_filter :authenticate_user!, except: [:index, :show]
-  
+
+  before_filter :authenticate_user!, except: [:index, :show, :report_abuse]
+
   def index
     @questions = Question.all
     respond_with(@questions)
@@ -39,3 +39,4 @@ class QuestionsController < ApplicationController
     respond_with(@question)
   end
 end
+

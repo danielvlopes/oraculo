@@ -10,3 +10,4 @@ class AnswersController < ApplicationController
   end
 
 end
+

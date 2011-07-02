@@ -117,9 +117,9 @@ a {
 /* footer */
 
 #footer {
-  height: 50px; 
-  margin-bottom: 20px; 
-  text-align: right; 
+  height: 50px;
+  margin-bottom: 20px;
+  text-align: right;
   width: 740px;
 }
 
@@ -145,7 +145,7 @@ a {
   float: right;
 }
 
-#searchOptions p { 
+#searchOptions p {
   margin: 5px 15px 5px 5px;
   font-size: 11px;
 }
@@ -188,7 +188,7 @@ a {
   padding: 10px !important;
   border: 1px solid;
   margin: 0 0 10px 0;
-  padding: 0; 
+  padding: 0;
 }
 
 #flashMessage .close {
@@ -380,3 +380,13 @@ div.message h4 a, div.message h4 {
   color: black;
   font-size: 22px;
 }
+
+.reportAbuse{
+  color: #17a2a2;
+  cursor:pointer;
+}
+
+.reportAbuse:hover{
+  color: #CCC000;
+}
+

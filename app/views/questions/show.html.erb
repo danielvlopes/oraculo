@@ -20,7 +20,7 @@
 </div>
 
 <% @question.answers.each do |answer| %>
-  <div class="message">
+  <%= div_for answer, :class => "message" do %>
 
     <div id="messageOwner">
       <%= image_tag "avatar.png" %>
@@ -32,15 +32,14 @@
         <span class="time"><%= time_ago_in_words answer.created_at %></span>
       </p>
 
-      <%= answer.body %>
+      <p><%= answer.body %></p>
     </div>
 
+    <%= render "report_abusive", answer: answer if signed_in? %>
+
     <%= clearfix %>
-  </div>
+
+  <% end %>
 <% end %>
 
-<% if signed_in? %>
-  <div class="answerForm">
-    <%= render "answers/form", question: @question, answer: Answer.new %>
-  </div>
-<% end %>
+<%= render "answers/form", question: @question, answer: Answer.new if signed_in? %>

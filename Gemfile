@@ -4,6 +4,7 @@ gem 'rails', '3.0.8'
 gem 'jquery-rails'
 gem 'responders'
 gem 'devise'
+gem 'rake', '0.8.7'
 
 group :development, :test do
   gem "nifty-generators"

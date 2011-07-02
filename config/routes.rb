@@ -5,5 +5,9 @@ Oraculo::Application.routes.draw do
     resources :answers
   end
 
+  resources :answers
+  resources :abusive_answers, :only => :create
+
   root to: "questions#index"
 end
+

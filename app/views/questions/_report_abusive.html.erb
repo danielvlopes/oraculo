@@ -1,0 +1,5 @@
+<p>
+  <%= button_to "Report abusive",
+        abusive_answers_path(answer_id: answer.id, author_id: current_user.id),
+        :confirm => "Are you sure?" %>
+</p>
