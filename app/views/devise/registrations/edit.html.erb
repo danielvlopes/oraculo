@@ -6,6 +6,12 @@
   <p><%= f.label :email %><br />
   <%= f.email_field :email %></p>
 
+  <p><%= f.label :timezone %><br />
+  <%= f.time_zone_select :timezone %></p>
+
+  <p><%= f.label :receive_email_notifications %>
+  <%= f.check_box :receive_email_notifications %></p>
+
   <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password %></p>
 
