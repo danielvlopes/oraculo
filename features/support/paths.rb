@@ -17,6 +17,10 @@ module NavigationHelpers
       new_user_session_path
     when /the sign out page/
       destroy_user_session_path
+    when /the main page/
+      root_path
+    when /the profile page/
+      edit_user_registration_path
 
     else
       begin
