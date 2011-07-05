@@ -16,4 +16,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails'
   gem 'launchy', '0.3.7'
+  gem 'paperclip'
 end
