@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 module ApplicationHelper
 
   def flash_messages(options = {})
@@ -48,4 +50,8 @@ module ApplicationHelper
     content_tag :div, "", :class => "clearfix"
   end
 
+  def user_avatar(user)
+    digest = Digest::MD5.hexdigest(user.email)
+    image_tag "http://www.gravatar.com/avatar/#{digest}" , :size => '55x55'
+  end
 end
