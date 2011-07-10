@@ -1,0 +1,9 @@
+<div class="field">
+  <%= image_tag(image_to_remove.file.url(:thumb), :alt => image_to_remove.file_file_name) %>
+  <div class="checkToRemoveImage">
+    <%= f.fields_for :images, image_to_remove do |images_fields| %>
+      <%= images_fields.label :_destroy, "Remove" %>
+      <%= images_fields.check_box :_destroy %>
+    <% end %>
+  </div>
+</div>

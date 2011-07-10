@@ -356,6 +356,12 @@ textarea {
   width: 100%;
 }
 
+#messageBody .field .checkToRemoveImage label {
+  display: inline;
+  font-size: 13px;
+  font-weight: normal;
+}
+
 #messageImages {
   border-top: 2px solid #DDD;
   margin-top: 20px;

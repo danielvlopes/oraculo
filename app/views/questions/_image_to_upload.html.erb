@@ -1,0 +1,7 @@
+<% Question::MAX_IMAGES_COUNT.times do %>
+  <%= f.fields_for :images, @question.images.build do |images_fields| %>
+    <div class="field">
+      <%= images_fields.file_field :file %>
+    </div>
+  <% end %>
+<% end %>
