@@ -4,3 +4,5 @@ db/schema.rb
 log/*.log
 tmp/
 .rvmrc
+.DS_Store
+public/assets/*
