@@ -14,6 +14,12 @@
     </p>
 
     <%= @question.body %>
+
+    <% unless @question.images.blank? %>
+      <div class="messageImages">
+        <%= render :partial => "image", :collection => @question.images %>
+      </div>
+    <% end %>
   </div>
 
   <%= clearfix %>
