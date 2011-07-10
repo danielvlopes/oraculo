@@ -18,4 +18,6 @@ group :development, :test do
   gem 'launchy', '0.3.7'
   gem 'paperclip'
   gem 'rails3-generators'
+  gem 'hirb'
+  gem 'wirble'
 end
