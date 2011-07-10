@@ -356,6 +356,37 @@ textarea {
   width: 100%;
 }
 
+#messageImages {
+  border-top: 2px solid #DDD;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+#messageImages h5 {
+  background:url('/images/icon_attachment.gif') no-repeat left center;
+  margin-bottom: 5px;
+  padding-left: 16px;
+}
+
+#messageImages .image {
+  margin-top: 5px;
+}
+
+#messageImages .image .thumb {
+  float: left;
+}
+
+#messageImages .image .imageMeta {
+  float: left;
+  margin-left: 5px;
+}
+
+#messageImages .image .imageMeta .imageFileName {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 4px;
+}
+
 div.messages, div.message {
   color: #777;
   font-size: 11px;

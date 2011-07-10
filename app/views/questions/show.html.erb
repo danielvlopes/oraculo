@@ -16,7 +16,8 @@
     <%= @question.body %>
 
     <% unless @question.images.blank? %>
-      <div class="messageImages">
+      <div id="messageImages">
+        <h5>Attached images</h5>
         <%= render :partial => "image", :collection => @question.images %>
       </div>
     <% end %>
