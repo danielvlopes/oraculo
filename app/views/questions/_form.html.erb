@@ -3,7 +3,7 @@
 </div>
 
 <div id="messageBody">
-  <%= form_for(@question) do |f| %>
+  <%= form_for(@question, :html => { :multipart => true }) do |f| %>
     <%= f.error_messages %>
 
     <div class="field">
@@ -15,6 +15,14 @@
       <%= f.label :body, "Give more details as much as you can" %><br />
       <%= f.text_area :body, rows: 10, cols: 60 %>
     </div>
+
+    <%= fields_for "question[images_attributes][]", @question.images do |images_fields| %>
+      <% 1.upto(Question::MAX_IMAGES_COUNT) do |n| %>
+        <div class="field">
+          <%= images_fields.file_field :file, :id => "question_images_attributes_#{n}_file" %>
+        </div>
+      <% end %>
+    <% end %>
 
     <div class="actions">
       <%= submit_button %> or <%= link_to_cancel %>
