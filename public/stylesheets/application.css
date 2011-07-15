@@ -83,7 +83,9 @@ a {
   margin-bottom: 20px;
 }
 
-#sidebar #addQuestion {
+#sidebar #addQuestion { color: #BE2222; }
+
+#sidebar .button {
   width: 122px;
   text-align: center;
   -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -95,21 +97,19 @@ a {
   border-radius:5px;
   border:1px solid #dcdcdc;
   display:inline-block;
-  color:#666666;
   font-family:Verdana;
   font-size: 13px;
-  color: #BE2222;
   font-weight:bold;
   padding:10px 24px;
   text-decoration:none;
   text-shadow:1px 1px 0px #ffffff;
 }
 
-#sidebar #addQuestion:hover {
+#sidebar .button:hover {
   background-color:#f6f6f6;
 }
 
-#sidebar #addQuestion:active {
+#sidebar .button:active {
   position:relative;
   top:1px;
 }
@@ -379,4 +379,17 @@ div.messages, div.message {
 div.message h4 a, div.message h4 {
   color: black;
   font-size: 22px;
+}
+
+/* Members */
+
+#members .count { text-align: center; width:15%; }
+#members .status { text-align: center; width:25% }
+#members .member { width:45%; text-align: left; }
+#members .avatar { padding-right: 20px; width: 10%; }
+#members #membersList { width: 100%; }
+
+#members td{
+  vertical-align: middle;
+  padding: 2px;
 }

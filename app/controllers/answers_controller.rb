@@ -8,5 +8,5 @@ class AnswersController < ApplicationController
 
     respond_with(@answer, location: @answer.question)
   end
-
+ 
 end

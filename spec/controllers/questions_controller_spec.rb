@@ -2,17 +2,6 @@ require 'spec_helper'
 
 describe QuestionsController do
 
-  include Devise::TestHelpers
-
-  def user(args={})
-    @user ||= User.create({
-      name: "Jonh",
-      email: "jonh@gmail.com",
-      password: "123456",
-      password_confirmation: "123456"
-    }.merge(args))
-  end
-
   def valid_attributes
     {
       title: "Some Question",
@@ -20,12 +9,9 @@ describe QuestionsController do
       owner: user
     }
   end
-
-  before(:each) do
-    request.env['warden'] = mock(Warden, :authenticate => user,
-                                         :authenticate! => user)
-  end
-
+  
+  let!(:user) { login_and_return_user }
+  
   describe "GET index" do
     it "assigns all questions as @questions" do
       question = Question.create! valid_attributes
