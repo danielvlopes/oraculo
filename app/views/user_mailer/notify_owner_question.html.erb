@@ -1,0 +1,13 @@
+<b>Olá, <%= @question.owner.name %></b>
+<br />
+<br />
+<p>
+	A sua pergunta:
+	<a href="<%= url_for(@question) %>"><%= @question.title %></a>, recebeu uma nova resposta.
+</p>
+<br />
+<br />
+<br />
+<p>
+	<strong><%= link_to "Oraculo", root_path %></strong>
+</p>
