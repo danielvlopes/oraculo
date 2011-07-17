@@ -14,7 +14,7 @@
 
       <div id="header">
         <div class="left">
-          Community Support for 
+          Community Support for
           <strong><%= link_to "My App", root_path %></strong>
         </div>
         <div class="right">
@@ -23,7 +23,7 @@
             <%= current_user.email %> |
             <%= link_to "Sign Out", destroy_user_session_path %>
           <% else %>
-            <%= link_to "Sign In", new_user_session_path %> | 
+            <%= link_to "Sign In", new_user_session_path %> |
             <%= link_to "Sign Up", new_user_registration_path %>
           <% end %>
 
@@ -55,6 +55,39 @@
         <div id="sidebar">
           <%= link_to image_tag("logo.jpg", id: "productLogo"), root_path %>
           <p><%= link_to 'Ask a Question', new_question_path, id: "addQuestion" %></p>
+
+            <button id="advancedSearch">Advanced Search</button>
+              <div class="search_area" id="text_search" style="display: none;">
+                <p>
+                  <%= form_tag questions_path, :method => :get do %>
+                    <%= text_field_tag :search_title, "",
+                                       :placeholder => "Search by title",
+                                       :size => 22,
+                                       :type => "search",
+                                       :class => "search-field" %>
+                  <% end %>
+                </p>
+                <p>
+                  <%= form_tag questions_path, :method => :get do %>
+                    <%= text_field_tag :search_author, "",
+                                        :placeholder => "Search by author",
+                                        :size => 22,
+                                        :type => "search",
+                                        :class => "search-field" %>
+                    <% end%>
+                  </p>
+                  <%= form_tag questions_path, :method => :get do %>
+                    <div id="date_search">
+                      <p> Search by date </p>
+                       <p><%= date_select :start_at, nil, :use_short_month => true %></p>
+                       <p><%= date_select :end_at, nil, :use_short_month => true %></p>
+                    </div>
+
+                    <div id="search_button" style="display: none;">
+                      <%= submit_tag "search", :disable_with => "Wait..."%>
+                    </div>
+                  <% end %>
+              </div>
         </div>
       </div>
 
@@ -66,3 +99,13 @@
 
   </body>
 </html>
+<script>
+  $('#text_search').hide
+  $('#advancedSearch').click(function(){
+    $('#text_search').toggle("slow");
+  });
+
+  $('#date_search').click(function(){
+    $('#search_button').show();
+  });
+</script>
