@@ -1,10 +1,13 @@
 class QuestionsController < ApplicationController
-  
+
   before_filter :authenticate_user!, except: [:index, :show]
-  
+
   def index
-    @questions = Question.all
-    respond_with(@questions)
+    @questions = Question.scoped
+    @questions = @questions.search_title(params[:search_title]) if params[:search_title].present?
+    @questions = @questions.search_author(params[:search_author]) if params[:search_author].present?
+    @questions = @questions.search_date(date_select_to_date(params[:start_at]).to_date, date_select_to_date(params[:end_at]).to_date) if params[:start_at].present?
+    respond_with(@question)
   end
 
   def show
