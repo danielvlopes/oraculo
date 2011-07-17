@@ -41,4 +41,12 @@ class QuestionsController < ApplicationController
     @question.destroy
     respond_with(@question)
   end
+
+  def date_select_to_date(date_select)
+    if date_select.is_a? Hash
+      Date.parse("#{date_select.map{ |key, value| value }.join '-'}")
+    else
+      start_at
+    end
+  end
 end
