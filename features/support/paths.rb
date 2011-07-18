@@ -4,6 +4,10 @@ module NavigationHelpers
     "/users/sign_up"
   end
 
+  def signin_page
+    "/users/sign_in"
+  end
+
   def path_to(page_name)
     case page_name
 
@@ -17,6 +21,8 @@ module NavigationHelpers
       new_user_session_path
     when /the sign out page/
       destroy_user_session_path
+    when /the message page/
+      '/messages/1'
 
     else
       begin
@@ -32,3 +38,4 @@ module NavigationHelpers
 end
 
 World(NavigationHelpers)
+

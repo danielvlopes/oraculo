@@ -1,0 +1,16 @@
+<div id="messages">
+  <h3><%= "#{@messages.count}" %> <%= (@messages.count == 1) ? 'message' : 'messages' %></h4>
+
+  <% @messages.each do |message| %>
+
+    <div class="message">
+      <h4><%= link_to "From: #{message.sender.name}", message %></h4>
+      <p class="metadata">
+        <span class="time"><%= " on #{message.created_at.to_s(:long)} (#{time_ago_in_words(message.created_at)})" %></span>
+      </p>
+    </div>
+
+  <% end %>
+
+</div>
+

@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>From:</b>
+  <%= @message.sender.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @message.content %>
+</p>
+
+
+<%= link_to 'Delete', @message, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', messages_path %>
+
