@@ -64,3 +64,6 @@ Given /^(?:|I am )signed in$/ do
   @user.confirm!
   When %Q{I sign in as "joao@example.com/thePassword"}
 end
+
+Given /^I am not signed in$/ do
+end

@@ -4,7 +4,9 @@ class QuestionsController < ApplicationController
   
   def index
     @questions = Question.all
-    respond_with(@questions)
+    respond_with(@questions) do |format|
+      format.atom
+    end
   end
 
   def show
