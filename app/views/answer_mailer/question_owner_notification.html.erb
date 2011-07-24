@@ -1,0 +1,5 @@
+<strong>Hello, <%= @question.owner.name %></strong>
+
+<p>Your question received a new answer:</p>
+
+<p><%= link_to @answer.body, question_url(@question) %>.</p>
