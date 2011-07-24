@@ -17,7 +17,7 @@
     </div>
 
     <% if @question.new_record? %>
-      <%= render :partial => "image_to_upload", :locals => { :f => f } %>
+      <%= render "image_to_upload", :f => f %>
     <% else %>
       <%= render :partial => "image_to_remove", :collection => @question.images, :locals => { :f => f } %>
     <% end %>

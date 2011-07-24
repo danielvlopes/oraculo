@@ -4,6 +4,7 @@ gem 'rails', '3.0.8'
 gem 'jquery-rails'
 gem 'responders'
 gem 'devise'
+gem 'paperclip'
 
 group :development, :test do
   gem "nifty-generators"
@@ -16,8 +17,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails'
   gem 'launchy', '0.3.7'
-  gem 'paperclip'
   gem 'rails3-generators'
-  gem 'hirb'
-  gem 'wirble'
 end

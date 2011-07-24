@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
-  
+
   before_filter :authenticate_user!, except: [:index, :show]
-  
+  before_filter :prepare_images, :only => [:new, :create, :update, :edit]
+
   def index
     @questions = Question.all
     respond_with(@questions) do |format|
@@ -40,4 +41,16 @@ class QuestionsController < ApplicationController
     @question.destroy
     respond_with(@question)
   end
+
+private
+
+  def prepare_images
+    return unless has_image_attributes?
+    params[:question][:images_attributes].reject! { |k,v| v[:file].empty? }
+  end
+
+  def has_image_attributes?
+    params[:question].present? && params[:question][:images_attributes].present?
+  end
+
 end

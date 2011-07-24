@@ -3,7 +3,6 @@
     <%= link_to image_tag(image.file.url(:thumb), :alt => image.file_file_name), image.file.url, :title => image.file_file_name, :target => "_blank" %>
   </div>
   <div class="imageMeta">
-    <p class="imageFileName"><%= image.file_file_name.truncate(20) %></p>
     <span class="imageFileSize"><%= number_to_human_size(image.file_file_size) %></span> |
     <span class="linkToViewImage"><%= link_to "View", image.file.url, :target => "_blank" %></span>
   </div>
