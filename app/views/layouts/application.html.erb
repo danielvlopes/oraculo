@@ -37,15 +37,25 @@
 
             <div id="search">
               <div id="searchBar">
-                <%= form_tag "#" do %>
-                  <%= text_field_tag :search %>
-                  <%= submit_tag "Search", class: "searchButton"  %>
-                <% end -%>
-              </div>
 
-              <div id="searchOptions">
-                <p><%= link_to "Advanced Search", "#" %></p>
+                <div id="simpleSearch">
+                  <%= form_tag "#" do %>
+                    <%= text_field_tag :search %>
+                    <%= submit_tag "Search", class: "searchButton"  %>
+                  <% end -%>
+                </div>
+
+                <div id="advancedSearch" style="display:none;">
+                  <%= render "shared/advanced_search" %>
+                </div>
+
               </div>
+            </div>
+
+            <div id="searchOptions">
+              <%= link_to "Advanced search", "#",
+                    id: "displayAdvancedSearch",
+                    class: "right" %>
             </div>
 
             <%= yield %>
@@ -55,39 +65,6 @@
         <div id="sidebar">
           <%= link_to image_tag("logo.jpg", id: "productLogo"), root_path %>
           <p><%= link_to 'Ask a Question', new_question_path, id: "addQuestion" %></p>
-
-            <button id="advancedSearch">Advanced Search</button>
-              <div class="search_area" id="text_search" style="display: none;">
-                <p>
-                  <%= form_tag questions_path, :method => :get do %>
-                    <%= text_field_tag :search_title, "",
-                                       :placeholder => "Search by title",
-                                       :size => 22,
-                                       :type => "search",
-                                       :class => "search-field" %>
-                  <% end %>
-                </p>
-                <p>
-                  <%= form_tag questions_path, :method => :get do %>
-                    <%= text_field_tag :search_author, "",
-                                        :placeholder => "Search by author",
-                                        :size => 22,
-                                        :type => "search",
-                                        :class => "search-field" %>
-                    <% end%>
-                  </p>
-                  <%= form_tag questions_path, :method => :get do %>
-                    <div id="date_search">
-                      <p> Search by date </p>
-                       <p><%= date_select :start_at, nil, :use_short_month => true %></p>
-                       <p><%= date_select :end_at, nil, :use_short_month => true %></p>
-                    </div>
-
-                    <div id="search_button" style="display: none;">
-                      <%= submit_tag "search", :disable_with => "Wait..."%>
-                    </div>
-                  <% end %>
-              </div>
         </div>
       </div>
 
@@ -96,16 +73,18 @@
       </div>
 
     </div>
+    
+    <script type="text/javascript" charset="utf-8">
+      $(function(){
+        function toggleSearchForms(){
+          $('#advancedSearch').toggle();
+          $('#simpleSearch').toggle();
+          $('#displayAdvancedSearch').toggle();
+        }
 
+        $('#displayAdvancedSearch').click(toggleSearchForms);
+        $('#cancelAdvancedSearch').click(toggleSearchForms);
+      });
+    </script>
   </body>
 </html>
-<script>
-  $('#text_search').hide
-  $('#advancedSearch').click(function(){
-    $('#text_search').toggle("slow");
-  });
-
-  $('#date_search').click(function(){
-    $('#search_button').show();
-  });
-</script>
