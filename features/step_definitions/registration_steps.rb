@@ -58,12 +58,3 @@ Then /^I should be signed out$/ do
   visit "/"
   page.should_not have_css("span.currentUser")
 end
-
-Given /^(?:|I am )signed in$/ do
-  @user = User.create!(email: "joao@example.com", password: "thePassword", name: "Joao")
-  @user.confirm!
-  When %Q{I sign in as "joao@example.com/thePassword"}
-end
-
-Given /^I am not signed in$/ do
-end

@@ -8,7 +8,7 @@ describe User do
       normal   = user_factory email: "normal@me.com"
       popular  = user_factory email: "popular@me.com"
       newbie   = user_factory email: "newbie@me.com"
-      question = mock_model(Question, owner: newbie)
+      question = mock_model(Question, owner: newbie, title: "Lorem")
 
       2.times { answer_factory(owner: popular, question: question) }
       answer_factory(owner: normal, question: question)

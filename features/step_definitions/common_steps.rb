@@ -1,3 +1,9 @@
+Given /^(?:|I am )signed in$/ do
+  @user = User.create!(email: "joao@example.com", password: "thePassword", name: "Joao")
+  @user.confirm!
+  When %Q{I sign in as "joao@example.com/thePassword"}
+end
+
 Then /should see success message/ do
   page.should have_css(".notice")
 end

@@ -15,6 +15,13 @@ module Support
         body: "You should do this ..."
       }.merge(attributes))
     end
+    
+    def question_factory(attributes = {})
+      Question.create!({
+        title: "How to do this?",
+        body: "Lorem..."
+      }.merge(attributes))
+    end
 
     def login_and_return_user(attributes = {})
       @logged_user ||= User.create!({
