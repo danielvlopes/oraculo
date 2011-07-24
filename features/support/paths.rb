@@ -9,6 +9,8 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the members list page/
+      '/members'
     when /the new question page/
       new_question_path
     when /the questions page/

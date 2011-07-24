@@ -40,4 +40,5 @@ class QuestionsController < ApplicationController
     @question.destroy
     respond_with(@question)
   end
+
 end
