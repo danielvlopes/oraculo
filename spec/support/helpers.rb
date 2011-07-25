@@ -15,7 +15,7 @@ module Support
         body: "You should do this ..."
       }.merge(attributes))
     end
-    
+
     def question_factory(attributes = {})
       Question.create!({
         title: "How to do this?",
@@ -30,9 +30,14 @@ module Support
         password: "123456",
         password_confirmation: "123456"
       }.merge(attributes))
-      
-      request.env['warden'] = mock(Warden, authenticate: @logged_user, authenticate!: @logged_user)
+
+      login_as_user(@logged_user)
       @logged_user
     end
+
+    def login_as_user(user)
+      request.env['warden'] = mock(Warden, authenticate: user, authenticate!: user)
+    end
+
   end
 end

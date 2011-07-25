@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   has_many :messages, :foreign_key => "receiver_id"
 
   validates_presence_of :name
-end
 
   def self.by_activity
     order("answers_count DESC")
