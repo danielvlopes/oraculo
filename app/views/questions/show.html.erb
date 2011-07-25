@@ -1,7 +1,7 @@
 <div class="message">
 
   <div id="messageOwner">
-    <%= image_tag "avatar.png" %>
+    <%= user_avatar @question.owner %>
   </div>
 
   <div id="messageBody">
@@ -23,7 +23,7 @@
   <div class="message">
 
     <div id="messageOwner">
-      <%= image_tag "avatar.png" %>
+      <%= user_avatar answer.owner %>
     </div>
 
     <div id="messageBody">

@@ -1,0 +1,24 @@
+<%= form_tag questions_path, :method => :get do %>
+
+  <div id="searchByTitle">
+    <%= label_tag "By title:" %>
+    <%= text_field_tag :search_title, "", size: 35 %>
+  </div>
+
+  <div id="searchByAuthor">
+    <%= label_tag "By author:" %>
+    <%= text_field_tag :search_author, "", size: 20 %>
+  </div>
+
+  <div id="searchByDate">
+    <%= label_tag "In date range" %>
+    <%= date_select :start_at, nil, use_short_month: true %>
+    <%= date_select :end_at, nil, use_short_month: true %>
+  </div>
+
+  <p>
+    <%= submit_tag "search", :disable_with => "Wait..."%>
+    <%= link_to "cancel", "#", id: "cancelAdvancedSearch" %>
+  </p>
+
+<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title>Oraculo: <%= content_for?(:title) ? yield(:title) : "Community Support" %></title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
@@ -22,6 +22,7 @@
           <% if signed_in? %>
             <%= current_user.email %> |
             <%= link_to "My private inbox", messages_path %> |
+            <%= link_to "Profile", edit_user_registration_path %> |
             <%= link_to "Sign Out", destroy_user_session_path %>
           <% else %>
             <%= link_to "Sign In", new_user_session_path %> |
@@ -38,15 +39,25 @@
 
             <div id="search">
               <div id="searchBar">
-                <%= form_tag "#" do %>
-                  <%= text_field_tag :search %>
-                  <%= submit_tag "Search", class: "searchButton"  %>
-                <% end -%>
-              </div>
 
-              <div id="searchOptions">
-                <p><%= link_to "Advanced Search", "#" %></p>
+                <div id="simpleSearch">
+                  <%= form_tag "#" do %>
+                    <%= text_field_tag :search %>
+                    <%= submit_tag "Search", class: "searchButton"  %>
+                  <% end -%>
+                </div>
+
+                <div id="advancedSearch" style="display:none;">
+                  <%= render "shared/advanced_search" %>
+                </div>
+
               </div>
+            </div>
+
+            <div id="searchOptions">
+              <%= link_to "Advanced search", "#",
+                    id: "displayAdvancedSearch",
+                    class: "right" %>
             </div>
 
             <%= yield %>
@@ -54,8 +65,9 @@
         </div>
 
         <div id="sidebar">
-          <%= link_to image_tag("logo.jpg", id: "productLogo"), root_path %>
-          <p><%= link_to 'Ask a Question', new_question_path, id: "addQuestion" %></p>
+          <p><%= link_to image_tag("logo.jpg", id: "productLogo"), root_path %></p>
+          <p><%= link_to 'Ask a Question', new_question_path, id: "addQuestion", class: "button" %></p>
+          <p><%= link_to 'Members List', members_path, class: "button" %></p>
         </div>
       </div>
 
@@ -64,7 +76,22 @@
       </div>
 
     </div>
+    
+    <script type="text/javascript" charset="utf-8">
+      $(function(){
+        function toggleSearchForms(){
+          $('#advancedSearch').toggle();
+          $('#simpleSearch').toggle();
+          $('#displayAdvancedSearch').toggle();
+        }
 
+        $('#displayAdvancedSearch').click(toggleSearchForms);
+        $('#cancelAdvancedSearch').click(toggleSearchForms);
+      });
+    </script>
   </body>
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master

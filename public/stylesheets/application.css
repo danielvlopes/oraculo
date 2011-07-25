@@ -83,7 +83,9 @@ a {
   margin-bottom: 20px;
 }
 
-#sidebar #addQuestion {
+#sidebar #addQuestion { color: #BE2222; }
+
+#sidebar .button {
   width: 122px;
   text-align: center;
   -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -95,21 +97,19 @@ a {
   border-radius:5px;
   border:1px solid #dcdcdc;
   display:inline-block;
-  color:#666666;
   font-family:Verdana;
   font-size: 13px;
-  color: #BE2222;
   font-weight:bold;
   padding:10px 24px;
   text-decoration:none;
   text-shadow:1px 1px 0px #ffffff;
 }
 
-#sidebar #addQuestion:hover {
+#sidebar .button:hover {
   background-color:#f6f6f6;
 }
 
-#sidebar #addQuestion:active {
+#sidebar .button:active {
   position:relative;
   top:1px;
 }
@@ -117,16 +117,23 @@ a {
 /* footer */
 
 #footer {
-  height: 50px; 
-  margin-bottom: 20px; 
-  text-align: right; 
+  height: 50px;
+  margin-bottom: 20px;
+  text-align: right;
   width: 740px;
 }
 
 /* search bar */
 
-#search {
-  margin-bottom: 40px;
+#searchOptions {
+  padding: 10px;
+  overflow: hidden;
+}
+
+#searchOptions p {
+  float: right;
+  margin: 5px 15px 5px 5px;
+  font-size: 11px;
 }
 
 #searchBar {
@@ -136,27 +143,17 @@ a {
   margin: 0;
 }
 
-#searchBar input[type="text"] {
+#searchBar #simpleSearch input[type="text"] {
   margin: 0;
   width: 505px;
 }
 
-#searchOptions {
-  float: right;
-}
-
-#searchOptions p { 
-  margin: 5px 15px 5px 5px;
-  font-size: 11px;
-}
-
-.searchButton {
+#simpleSearch .searchButton {
   -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
   -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
   box-shadow:inset 0px 1px 0px 0px #ffffff;
   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
   background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
-
   background-color:#f9f9f9;
   -moz-border-radius:5px;
   -webkit-border-radius:5px;
@@ -172,15 +169,29 @@ a {
   text-shadow:1px 1px 0px #ffffff;
 }
 
-.searchButton:hover {
+#simpleSearch .searchButton:hover {
   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
   background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
   background-color:#e9e9e9;
 }
 
-.searchButton:active {
+#simpleSearch .searchButton:active {
   position:relative;
   top:1px;
+}
+
+#advancedSearch {
+  overflow: hidden;
+}
+
+#advancedSearch label { font-size: 12px !important; }
+#searchByTitle, #searchByAuthor { margin: 0 10px 0 0; float: left; }
+#searchByDate {
+  float: left;
+  width: 100%;
+  border-bottom: 1px #E0E0E0 solid;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 /* flash messages */
@@ -188,7 +199,7 @@ a {
   padding: 10px !important;
   border: 1px solid;
   margin: 0 0 10px 0;
-  padding: 0; 
+  padding: 0;
 }
 
 #flashMessage .close {
@@ -379,4 +390,17 @@ div.messages, div.message {
 div.message h4 a, div.message h4 {
   color: black;
   font-size: 22px;
+}
+
+/* Members */
+
+#members .count { text-align: center; width:15%; }
+#members .status { text-align: center; width:25% }
+#members .member { width:45%; text-align: left; }
+#members .avatar { padding-right: 20px; width: 10%; }
+#members #membersList { width: 100%; }
+
+#members td{
+  vertical-align: middle;
+  padding: 2px;
 }

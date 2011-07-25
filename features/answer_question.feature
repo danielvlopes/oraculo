@@ -21,4 +21,5 @@ Feature: Answer Questions
     And press "Save"
     Then I should see success message
     And I should see "Hey, I know the answer!"
+    And an email with subject "Question 2" should have been sent to joao@example.com
     

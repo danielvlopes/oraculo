@@ -1,5 +1,5 @@
 <div id="messageOwner">
-  <%= image_tag "avatar.png" %>
+  <%= user_avatar current_user %>
 </div>
 
 <div id="messageBody">
@@ -16,10 +16,11 @@
       <%= f.text_area :body, rows: 10, cols: 60 %>
     </div>
 
+    <%= f.captcha %>
+
     <div class="actions">
       <%= submit_button %> or <%= link_to_cancel %>
     </div>
   <% end %>
 </div>
 
-<%= clearfix %>

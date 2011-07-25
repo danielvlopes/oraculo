@@ -13,6 +13,8 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the members list page/
+      '/members'
     when /the new question page/
       new_question_path
     when /the questions page/
@@ -27,7 +29,10 @@ module NavigationHelpers
       new_message_path
     when /the private inbox page/
       visit messages_path
-
+    when /the main page/
+      root_path
+    when /the profile page/
+      edit_user_registration_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
