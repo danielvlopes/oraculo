@@ -4,6 +4,8 @@ gem 'rails', '3.0.8'
 gem 'jquery-rails'
 gem 'responders'
 gem 'devise'
+gem 'reverse_captcha'
+
 
 group :development, :test do
   gem "nifty-generators"

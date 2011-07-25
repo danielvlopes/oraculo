@@ -118,6 +118,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.9.2)
     responders (0.6.4)
+    reverse_captcha (0.0.1)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -174,6 +175,7 @@ DEPENDENCIES
   nifty-generators
   rails (= 3.0.8)
   responders
+  reverse_captcha
   rspec (~> 2.5)
   rspec-rails (~> 2.5)
   ruby-debug19

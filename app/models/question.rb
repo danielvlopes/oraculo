@@ -5,6 +5,8 @@ class Question < ActiveRecord::Base
     foreign_key: "user_id",
     counter_cache: true
 
+  captcha :nickname
+
   validates_presence_of :title, :body,:owner
   validates_associated :owner
 
